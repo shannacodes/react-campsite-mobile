@@ -34,7 +34,7 @@ const HomeScreen = () => {
   const [promotions, setPromotions] = useState(PROMOTIONS);
   const [partners, setPartners] = useState(PARTNERS);
 
-  const featCampsite = campsites.find((item) => item.featured);
+  const featCampsite = campsites.find((item) => item.featured); // finds & returns item that = true
   const featPromotion = promotions.find((item) => item.featured);
   const featPartner = partners.find((item) => item.featured);
 
