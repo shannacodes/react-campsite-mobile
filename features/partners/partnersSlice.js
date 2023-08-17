@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { baseUrl } from "../../shared/baseUrl";
-import { useSelector, useDispatch } from "react-redux";
 
 export const fetchPartners = createAsyncThunk(
   "partners/fetchPartners",
