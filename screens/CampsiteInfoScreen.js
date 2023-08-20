@@ -12,6 +12,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { Rating, Input, Icon } from "react-native-elements";
+import { postComment } from "../features/comments/commentsSlice";
 
 const CampsiteInfoScreen = ({ route }) => {
   const { campsite } = route.params;
@@ -32,7 +33,7 @@ const CampsiteInfoScreen = ({ route }) => {
       text,
       campsiteId: campsite.id,
     };
-    console.log(newComment);
+    dispatch(postComment(newComment));
     setShowModal(!showModal);
   };
 
