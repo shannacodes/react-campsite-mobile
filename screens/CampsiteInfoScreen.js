@@ -1,14 +1,6 @@
 import RenderCampsite from "../features/campsites/RenderCampsite";
 import { useState } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Modal,
-  TextInput,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View, Button, Modal } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavorite } from "../features/favorites/favoritesSlice";
 import { Rating, Input, Icon } from "react-native-elements";
@@ -38,7 +30,7 @@ const CampsiteInfoScreen = ({ route }) => {
   };
 
   const resetForm = () => {
-    setRating(5);
+    setRating(5); // Resets to initial values
     setAuthor("");
     setText("");
   };

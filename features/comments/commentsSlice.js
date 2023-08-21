@@ -46,7 +46,7 @@ const commentsSlice = createSlice({
 
 export const postComment = createAsyncThunk(
   "comments/postComment",
-  async (payload, { getState, dispatch }) => {
+  async (payload, { dispatch, getState }) => {
     try {
       const date = new Date().toISOString();
       const comments = getState().comments.commentsArray;
@@ -60,5 +60,5 @@ export const postComment = createAsyncThunk(
   }
 );
 
-export const commentsReducer = commentsSlice.reducer;
 export const { addComment } = commentsSlice.actions;
+export const commentsReducer = commentsSlice.reducer;
