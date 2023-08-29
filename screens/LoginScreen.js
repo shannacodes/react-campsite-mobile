@@ -57,7 +57,7 @@ const LoginScreen = () => {
         leftIconContainerStyle={styles.formIcon}
       />
       <CheckBox
-        title="Remember"
+        title="Remember Me"
         center
         checked={remember}
         onPress={() => setRemember(!remember)}
