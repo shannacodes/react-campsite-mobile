@@ -23,6 +23,7 @@ const RenderCampsite = (props) => {
     },
     onPanResponderEnd: (e, gestureState) => {
       console.log("pan responder end", gestureState);
+      console.log(props);
       if (isLeftSwipe(gestureState)) {
         Alert.alert(
           "Add Favorite",
