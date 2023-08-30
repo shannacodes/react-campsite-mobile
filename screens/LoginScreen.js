@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as ImagePicker from "expo-image-picker";
 import { baseUrl } from "../shared/baseUrl";
 import logo from "../assets/images/logo.png";
+import * as ImageManipulator from "expo-image-manipulator";
 
 const LoginTab = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -149,8 +150,25 @@ const RegisterTab = () => {
       });
       if (capturedImage.assets) {
         console.log(capturedImage.assets[0]);
-        setImageUrl(capturedImage.assets[0].uri);
+        // setImageUrl(capturedImage.assets[0].uri);
+        processImage(capturedImage.assets[0].uri);
       }
+    }
+  };
+
+  // WORKSHOP
+  const processImage = async (imgUri) => {
+    try {
+      const processedImage = await ImageManipulator.manipulateAsync(
+        imgUri,
+        [{ resize: { width: 400, height: 400 } }],
+        { format: ImageManipulator.SaveFormat.PNG }
+      );
+
+      setImageUrl(processedImage.uri); // Set the processed image URI
+      console.log(processedImage);
+    } catch (error) {
+      console.error("Error processing image:", error);
     }
   };
 
