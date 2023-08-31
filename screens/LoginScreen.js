@@ -156,7 +156,24 @@ const RegisterTab = () => {
     }
   };
 
-  // WORKSHOP
+  // WORKSHOP TASK 2
+  const getImageFromGallery = async () => {
+    const mediaLibraryPermissions =
+      await ImagePicker.requestCameraPermissionsAsync();
+
+    if (mediaLibraryPermissions.status === "granted") {
+      const capturedImage = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [1, 1],
+      });
+      if (capturedImage.assets) {
+        console.log(capturedImage.assets[0]);
+        processImage(capturedImage.assets[0].uri);
+      }
+    }
+  };
+
+  // WORKSHOP TASK 1
   const processImage = async (imgUri) => {
     try {
       const processedImage = await ImageManipulator.manipulateAsync(
@@ -182,6 +199,7 @@ const RegisterTab = () => {
             style={styles.image}
           />
           <Button title="Camera" onPress={getImageFromCamera} />
+          <Button title="Gallery" onPress={getImageFromGallery} />
         </View>
         <Input
           placeholder="Username"
